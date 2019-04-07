@@ -1,0 +1,50 @@
+#N canvas 1681 664 418 376 10;
+#X obj 125 10 inlet;
+#X obj 13 16 tgl 25 0 empty \$0-onoff empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 125 32 route noteon noteoff press slide glide;
+#X obj 45 44 hsl 60 15 0 127 0 0 empty \$0-press empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 45 62 hsl 60 15 0 127 0 0 empty \$0-slide empty -2 -8 0 10 -262144
+-1 -1 2862 1;
+#X obj 45 80 hsl 60 15 0 16383 0 0 empty \$0-glide empty -2 -8 0 10
+-262144 -1 -1 2927 1;
+#X obj 305 54 s \$0-glide;
+#X obj 260 73 s \$0-slide;
+#X obj 215 92 s \$0-press;
+#X text 8 44 press;
+#X text 8 62 slide;
+#X text 8 80 glide;
+#X floatatom 49 26 4 0 0 0 - #0-pitch -;
+#X text 44 9 pitch;
+#X text 83 9 vel;
+#X floatatom 81 26 4 0 0 0 - #0-velocity -;
+#X obj 125 202 t b a;
+#X msg 125 285 1;
+#X obj 125 306 s \$0-onoff;
+#X obj 152 223 unpack f f;
+#X obj 152 265 s \$0-pitch;
+#X obj 163 244 s \$0-velocity;
+#X obj 170 95 t b a;
+#X obj 170 199 s \$0-onoff;
+#X obj 197 116 unpack f f;
+#X obj 197 158 s \$0-pitch;
+#X obj 205 136 s \$0-velocity;
+#X msg 170 178 0;
+#X connect 0 0 2 0;
+#X connect 2 0 16 0;
+#X connect 2 1 22 0;
+#X connect 2 2 8 0;
+#X connect 2 3 7 0;
+#X connect 2 4 6 0;
+#X connect 16 0 17 0;
+#X connect 16 1 19 0;
+#X connect 17 0 18 0;
+#X connect 19 0 20 0;
+#X connect 19 1 21 0;
+#X connect 22 0 27 0;
+#X connect 22 1 24 0;
+#X connect 24 0 25 0;
+#X connect 24 1 26 0;
+#X connect 27 0 23 0;
+#X coords 0 -1 1 1 102 90 2 8 10;
