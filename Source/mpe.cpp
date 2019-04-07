@@ -31,7 +31,7 @@ static void *mpe_new (t_floatarg f)
     if (f == 0)
         x->rawMidiToMPE = new RawMidiToMPE (x->x_outlet);
     else
-        x->rawMidiToMPE = new RawMidiToMPE (x->x_outlet, f);
+        x->rawMidiToMPE = new RawMidiToMPE (x->x_outlet, f - 1);
 
     // start listening to system midiin messages
     t_symbol *midiin = gensym ("#midiin");

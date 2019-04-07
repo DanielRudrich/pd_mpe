@@ -106,6 +106,8 @@ public:
         }
         else // already received midiEvent
         {
+            const int offset = portFilter == -1 ? 0 : 1;
+
             if (byteOne == -1) // waiting for first byte
             {
                 if (event == press) // only one byte needed
@@ -118,7 +120,7 @@ public:
                     SETSYMBOL (list + 2, pressSym);
                     SETFLOAT (list + 3, byte);
 
-                    outlet_list (outletPtr, &s_list, 4, list);
+                    outlet_list (outletPtr, &s_list, 4 - offset, list + offset);
 
                     event = noEvent;
                     return;
@@ -143,7 +145,7 @@ public:
                         SETFLOAT (list + 3, byteOne);
                         SETFLOAT (list + 4, byte);
 
-                        outlet_list (outletPtr, &s_list, 5, list);
+                        outlet_list (outletPtr, &s_list, 5 - offset, list + offset);
                         break;
 
                     case noteOff:
@@ -155,7 +157,7 @@ public:
                         SETFLOAT (list + 3, byteOne);
                         SETFLOAT (list + 4, byte);
 
-                        outlet_list (outletPtr, &s_list, 5, list);
+                        outlet_list (outletPtr, &s_list, 5 - offset, list + offset);
                         break;
 
                     case slide:
@@ -166,7 +168,7 @@ public:
                         SETSYMBOL (list + 2, slideSym);
                         SETFLOAT (list + 3, byte);
 
-                        outlet_list (outletPtr, &s_list, 4, list);
+                        outlet_list (outletPtr, &s_list, 4 - offset, list + offset);
                         break;
 
                     case glide:
@@ -177,7 +179,7 @@ public:
                         SETSYMBOL (list + 2, glideSym);
                         SETFLOAT (list + 3, byte * 127 + byteOne);
 
-                        outlet_list (outletPtr, &s_list, 4, list);
+                        outlet_list (outletPtr, &s_list, 4 - offset, list + offset);
                         break;
 
                     default: ;
