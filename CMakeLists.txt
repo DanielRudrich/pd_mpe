@@ -1,7 +1,7 @@
 # Define your standard CMake header (for example):
 cmake_minimum_required(VERSION 2.8)
 
-set(project_source_dir /Users/Daniel/Projekte/2019_PDCMAKETest)
+set(project_source_dir /Users/Daniel/Projekte/2019_pd_MPE)
 
 set(CMAKE_SUPPRESS_REGENERATION true)
 set(CMAKE_MACOSX_RPATH Off)
