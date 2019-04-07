@@ -30,14 +30,14 @@ public:
 
     RawMidiToMPE (t_outlet *outlet) : outletPtr (outlet), numPorts (maxNumberOfPorts), portFilter (-1) //
     {
-        post ("Created RawMidiToMPE instance listening to all devices.");
+        //post ("Created RawMidiToMPE instance listening to all devices.");
         init();
     };
 
 
     RawMidiToMPE (t_outlet *outlet, const int portIndex) : outletPtr (outlet), numPorts (1), portFilter (portIndex) //
     {
-        post ("Created RawMidiToMPE instance listening to only one device.");
+        //post ("Created RawMidiToMPE instance listening to only one device.");
         init();
     };
 
