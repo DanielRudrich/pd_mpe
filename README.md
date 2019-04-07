@@ -7,7 +7,8 @@ You can instantiate it simply with `[mpe]`, however you can also select a specif
 
 The object outputs a list with the following elements:
 
-- device number: integer range from 1 to 16, reflecting the midi devices in the pd midi settings (will be omitted when specific device is selected)
+- device number: integer in range [1, 16], reflecting the midi devices in the pd midi settings (will be omitted when specific device is selected)
+- voice number: integer in range [1, 15], represents midi channels 2-16 (MPE)
 - midi event symbol
 - value1
 - value2
