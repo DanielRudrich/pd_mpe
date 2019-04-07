@@ -5,6 +5,9 @@
  ==============================================================================
  */
 
+#ifndef BUILD_DATE
+    #define BUILD_DATE "" __DATE__ " : " __TIME__
+#endif
 
 
 #include "m_pd.h"
@@ -65,5 +68,8 @@ extern "C" {
                                CLASS_NOINLET, A_DEFFLOAT, 0);
         class_sethelpsymbol(mpe_class, gensym("mpe"));
         class_addlist (mpe_class, mpe_list);
+
+        post ("mpe (v0.1.1) library loaded! (c) Daniel Rudrich " BUILD_DATE);
+        post ("   mail%cdanielrudrich.de iem KUG Graz Austria", '@');
     }
 }
