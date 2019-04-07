@@ -3,32 +3,29 @@
 A little PureData external for MIDI Polyphonic Expression (MPE)
 
 ## Usage
-You can instantiate it simply with `[mpe]`, however you can also select a specific midi device e.g. device number 2 with `[mpe 2]`.
+You can instantiate the mpe object simply with `[mpe]`, and it will listen to all MIDI devices enabled in the pd midi settings. Alternatively, you can select a specific midi device e.g. device number 2 with `[mpe 2]`.
 
-The object outputs a list with the following elements:
+The object has only one outlet which outputs a list with the following atoms:
 
-- device number: integer in range [1, 16], reflecting the midi devices in the pd midi settings (will be omitted when specific device is selected)
-- voice number: integer in range [1, 15], represents midi channels 2-16 (MPE)
-- midi event symbol
-- value1
-- value2
+- **device number** integer in range [1, 16], reflecting the midi devices in the pd midi settings (will be omitted when specific device is selected)
+- **voice number** integer in range [1, 15], represents midi channels 2-16 (MPE)
+- **midi event symbol** see below
+- **value1**
+- **value2**
 
-The last two values depend on the midi event symbol:
-- noteon
+The last two values depend on the **midi event symbol**. In case of *noteon* and *noteoff*, both values are used. The other three events only send one value:
+- **noteon**
   - value1: midi pitch
   - value2: velocity
-- noteoff
+- **noteoff**
   - value1: midi pitch
   - value2: velocity
-- press
+- **press**
   - value1: integer 0-127
-  - value2: omitted
-- slide
+- **slide**
   - value1: integer 0-127
-  - value2: omitted
-- glide
+- **glide**
   - value1: integer 0-16383
-  - value2: omitted
   
 ## Compilation
 You can find the binary for macOS in the `bin` directory.
