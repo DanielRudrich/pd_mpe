@@ -74,35 +74,24 @@ public:
         if (event == noEvent) // listen to midi events
         {
             if (((byte >> 4) & 0x0F) == 0x09) // in range [144, 160[ -> noteOn
-            {
-                ch = (byte & 0x0F) + 1;
-                byteOne = -1; // reset
                 event = noteOn;
-            }
             else if (((byte >> 4) & 0x0F) == 0x08)
-            {
-                ch = (byte & 0x0F) + 1;
-                byteOne = -1; // reset
                 event = noteOff;
-            }
             else if (((byte >> 4) & 0x0F) == 0x0B) // control change
-            {
-                ch = (byte & 0x0F) + 1;
-                byteOne = -1; // reset
                 event = slide;
-            }
             else if (((byte >> 4) & 0x0F) == 0x0D)
-            {
-                ch = (byte & 0x0F) + 1;
-                byteOne = -1; // reset
                 event = press;
-            }
             else if (((byte >> 4) & 0x0F) == 0x0E)
-            {
-                ch = (byte & 0x0F) + 1;
-                byteOne = -1; // reset
                 event = glide;
-            }
+            else // no match
+                return;
+
+            ch = (byte & 0x0F);
+            
+            if (ch < 1) // only listen to midi channels 2-16 (minus one), only those are MPE
+                event = noEvent;
+
+            byteOne = -1; // reset
         }
         else // already received midiEvent
         {
