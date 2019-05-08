@@ -29,14 +29,4 @@ The last two values depend on the **midi event symbol**. In case of *noteon* and
   
 ## Compilation
 You can find the binary for macOS in the `bin` directory.
-In case you want to compile it yourself, you can use the `CMakeList.txt` to set your paths, and create your project with the terminal similar to this:
-
-```
-mkdir build
-cd build
-cmake .. -G XCode
-```
-
-(see `createXcodeProject.sh`)
-
-It's very similar for windows to create Microsoft Visual Studio projects. You should also be able to build it directly with CMAKE.
+In case you want to compile it yourself, you can use `make` in terminal / command line.

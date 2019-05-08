@@ -7,6 +7,7 @@ class.sources = Source/mpe.cpp
 # all extra files to be included in binary distribution of the library
 datafiles = bin/mpe-help.pd bin/mpeTest.pd
 
+cflags = -stdlib=libc++ -std=c++11
 
 # include Makefile.pdlibbuilder from submodule directory 'pd-lib-builder'
 PDLIBBUILDER_DIR=pd-lib-builder/
